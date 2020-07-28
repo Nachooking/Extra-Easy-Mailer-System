@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+        <meta charset = "UTF-8" />
+    <style>
+.container {
+  height: 200px;
+  position: relative;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+}
+</style>
+    <script>
+function onSuccess(numUnread) {
+       numUnread.forEach(myFunction);
+    } 
+ function myFunction(item, index) {
+ // document.getElementById("demo").innerHTML += index + ":" + item[0] + "<br>"; 
+ if(item[1] == true)
+{
+ document.getElementById("demo").innerHTML += item[0] + "<br>";
+}
+}
+google.script.run.withSuccessHandler(onSuccess).gettickedemails();
+function SendMails(){
+var subject=document.getElementById("subject").value;
+var body=document.getElementById("body").value;
+google.script.run.SendEmails(subject,body);
+ }
+
+</script>
+  </head>
+  <body>
+    <p id="demo"></p>
+    <br>
+      <fieldset>
+        <legend>Subject</legend>
+        <p>
+          <label>Enter Subject of Mail<br></label>
+         <textarea id = "subject"
+                  rows = "3"
+                  cols = "40"></textarea>
+        </p>
+        </fieldset>
+     <br>
+     <fieldset>
+        <legend>Body</legend>
+        <p>
+          <label>Enter Body<br></label>
+          <textarea id = "body"
+                  rows = "15"
+                  cols = "40"></textarea>
+        </p>
+        </fieldset>
+     <div class="container">
+  <div class="center">
+  <div class="button" style="width:80px;height:50px;">
+    <button onclick="SendMails()">Send Email</button>
+  </div>
+  </div>
+</div>
+  </body>
+</html>
+
+
