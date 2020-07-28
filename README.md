@@ -1,6 +1,6 @@
 ## Extra-Easy-Mailer-System ##
 
-It's Basically a Automated Emailer made Using Google Scripts .                                                                 
+It's Basically an Automated Emailer made Using Google Scripts .                                                                 
 
 It helps you to send the same mail to as many people as you want.                                                         
 
